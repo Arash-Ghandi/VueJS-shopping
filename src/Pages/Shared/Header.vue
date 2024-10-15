@@ -15,17 +15,11 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#"
-                >Home <span class="sr-only">(current)</span></a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled">Disabled</a>
-            </li>
+
+            <router-link tag="li" active-class="active" to="/" exact>
+              <a class="nav-link">Home</a>
+            </router-link>
+
           </ul>
           <form class="form-inline mt-2 mt-md-0">
             <input
