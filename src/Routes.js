@@ -3,32 +3,21 @@ var Home = resolve => {
     resolve(require('./Pages/Index/Index.vue'));
   });
 };
-export const Routes = [{
+var About = resolve => {
+  require.ensure(['./Pages/About/Index.vue'],()=>{
+    resolve(require('./Pages/About/Index.vue'));
+  });
+};
+export const Routes = [
+  {
   path: "/",
   component: Home
-},
-// {
-//   path: "/User",
-//   component: User,
-//   children: [{
-//       path: "",
-//       component: UserStart
-//     },
-//     {
-//       path: "edit/:id",
-//       component: UserEdit,
-//       name: "editUser",
-//       beforeEnter: (to, from, next) => {
-//         console.log('enter in route user edit ....');
-//         next();
-//       }
-//     },
-//     {
-//       path: "detail/:id",
-//       component: UserDetail
-//     }
-//   ]
-// },
+  },
+  {
+    path: "/about",
+    component: About
+  },
+
 {
   path: '/404',
   redirect: '/'

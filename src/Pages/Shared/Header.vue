@@ -20,6 +20,10 @@
               <a class="nav-link">Home</a>
             </router-link>
 
+            <router-link tag="li" active-class="active" to="/about" exact>
+              <a class="nav-link">About</a>
+            </router-link>
+
           </ul>
           <form class="form-inline mt-2 mt-md-0">
             <input
