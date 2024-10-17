@@ -8,6 +8,8 @@ import App from './App.vue';
 Vue.use(VueRouter);
 Vue.use(VueResource);
 
+Vue.http.options.root = "http://127.0.0.1:5000/";
+
 const router = new VueRouter({
   routes: Routes,
   mode: 'history',

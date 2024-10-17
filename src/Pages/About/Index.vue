@@ -15,13 +15,13 @@
         <div class="row featurette">
           <div class="col-md-7">
             <h2 class="featurette-heading">
-              And lastly, this one. <span class="text-muted">Checkmate.</span>
+              And lastly, this one. 
+              <span class="text-muted">{{About.name}}</span>
             </h2>
             <p class="lead">
-              And yes, this is the last block of representative placeholder
-              content. Again, not really intended to be actually read, simply
-              here to give you a better view of what this would look like with
-              some actual content. Your content.
+
+              {{About.description}}
+
             </p>
           </div>
           <div class="col-md-5">
@@ -51,3 +51,15 @@
 
     </main>
 </template>
+<script>
+export default {
+  computed: {
+    About() {
+      return this.$store.getters.GetAbout;
+    },
+  },
+  created() {
+    this.$store.dispatch("GetAboutFromServer");
+  }
+};
+</script>

@@ -2,7 +2,7 @@
   <div>
     <app-header></app-header>
 
-    <transition enter-active-class="animate fadeIn">
+    <transition enter-active-class="animated fadeIn">
       <router-view></router-view>
     </transition>
 
