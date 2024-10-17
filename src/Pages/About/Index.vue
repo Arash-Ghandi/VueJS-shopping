@@ -15,7 +15,7 @@
         <div class="row featurette">
           <div class="col-md-7">
             <h2 class="featurette-heading">
-              And lastly, this one. 
+              And lastly, this one.
               <span class="text-muted">{{About.name}}</span>
             </h2>
             <p class="lead">
