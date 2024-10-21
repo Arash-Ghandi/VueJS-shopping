@@ -1,7 +1,7 @@
 <template>
   <header>
       <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand" href="#">Carousel</a>
+        <a class="navbar-brand" href="#">Company</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -18,6 +18,10 @@
 
             <router-link tag="li" active-class="active" to="/" exact>
               <a class="nav-link">Home</a>
+            </router-link>
+
+            <router-link tag="li" active-class="active" to="/products" exact>
+              <a class="nav-link">Products</a>
             </router-link>
 
             <router-link tag="li" active-class="active" to="/about" exact>

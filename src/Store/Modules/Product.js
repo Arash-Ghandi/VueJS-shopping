@@ -2,17 +2,16 @@ import Vue from 'vue';
 
 const state = {
   MostSellProducts: [],
-  LatestProducts: [],
-  ProductImageAddress:"http://localhost:13172/api/product/image/"
+  ProductImageAddress:window.location.href+"src/assets/images/products/",
+  Products: [],
 };
-
 
 const getters = {
   GetMostSellProducts(state) {
     return state.MostSellProducts;
   },
-  GetLatestProducts(state) {
-    return state.LatestProducts;
+  GetProducts(state){
+    return state.Products;
   },
   GetProductImageAddress(state){
     return state.ProductImageAddress;
@@ -23,28 +22,30 @@ const mutations = {
   SetMostSellProducts(state, MostSellProducts) {
     state.MostSellProducts = MostSellProducts;
   },
-  SetLatestProducts(state, LatestProducts) {
-    state.LatestProducts = LatestProducts;
+  SetProducts(state,Products){
+    state.Products = Products;
   }
+
 };
 
 const actions = {
   GetMostSellProductsFromServer(context) {
-    Vue.http.get("product/MostSellProducts")
+    Vue.http.get("products/MostSellProducts")
       .then(response => {
         return response.json();
       }).then(data => {
         context.commit("SetMostSellProducts", data);
       });
   },
-  GetLatestProductsFromServer(context) {
-    Vue.http.get("product/LatestProducts")
+  GetProductsFromServer(context) {
+    Vue.http.get("products/GetProducts")
       .then(response => {
         return response.json();
       }).then(data => {
-        context.commit("SetLatestProducts", data);
+        context.commit("SetProducts", data);
       });
-  }
+  },
+
 };
 
 export default {

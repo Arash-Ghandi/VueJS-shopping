@@ -8,6 +8,11 @@ var About = resolve => {
     resolve(require('./Pages/About/Index.vue'));
   });
 };
+var Products = resolve => {
+  require.ensure(['./Pages/Products/Index.vue'],()=>{
+    resolve(require('./Pages/Products/Index.vue'));
+  });
+};
 export const Routes = [
   {
   path: "/",
@@ -17,7 +22,10 @@ export const Routes = [
     path: "/about",
     component: About
   },
-
+  {
+    path: "/products",
+    component: Products
+  },
 {
   path: '/404',
   redirect: '/'

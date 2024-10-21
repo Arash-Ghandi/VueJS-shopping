@@ -1,10 +1,16 @@
 <template>
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
-        <!-- <ol class="carousel-indicators">
-          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-          <li data-target="#myCarousel" data-slide-to="1"></li>
-          <li data-target="#myCarousel" data-slide-to="2"></li>
-        </ol> -->
+        <ol class="carousel-indicators">
+          <li
+          data-target="#myCarousel"
+
+          v-for="(slider,index) in Sliders"
+          :key="slider.sliderId"
+          :class="{active:index == 0}"
+          :data-slide-to="index"
+          ></li>
+
+        </ol>
         <div class="carousel-inner">
 
           <div
@@ -76,7 +82,9 @@ export default {
     // }
   },
   created() {
-    this.$store.dispatch("GetSlidersFromServer");
+    if(this.Sliders.length == 0){
+      this.$store.dispatch("GetSlidersFromServer");
+    }
   }
 };
 </script>
