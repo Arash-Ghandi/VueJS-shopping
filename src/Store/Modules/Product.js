@@ -4,6 +4,7 @@ const state = {
   MostSellProducts: [],
   ProductImageAddress:window.location.origin+"/src/assets/images/products/",
   Products: {},
+  Product: {},
 };
 
 const getters = {
@@ -12,6 +13,9 @@ const getters = {
   },
   GetProducts(state){
     return state.Products;
+  },
+  GetProduct(state){
+    return state.Product;
   },
   GetProductImageAddress(state){
     return state.ProductImageAddress;
@@ -24,8 +28,10 @@ const mutations = {
   },
   SetProducts(state,Products){
     state.Products = Products;
+  },
+  SetProduct(state,Product){
+    state.Product = Product;
   }
-
 };
 
 const actions = {
@@ -47,6 +53,14 @@ const actions = {
         return response.json();
       }).then(data => {
         context.commit("SetProducts", data);
+      });
+  },
+  GetProductFromServer(context,Filter) {
+    Vue.http.get("products/GetProduct/" + Filter.productId)
+      .then(response => {
+        return response.json();
+      }).then(data => {
+        context.commit("SetProduct", data);
       });
   },
 

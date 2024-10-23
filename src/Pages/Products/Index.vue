@@ -15,7 +15,10 @@
                 <h5 class="card-title">{{ product.name }}</h5>
                 <p class="card-text">{{ product.description }}</p>
                 <p class="card-text">{{ product.price }} $</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+
+                <router-link class="btn btn-primary w-100" :to="{name:'GetProduct',params:{id:product.id}}">
+                  Show
+                </router-link>
               </div>
             </div>
           </div>
@@ -37,8 +40,6 @@
         </ul>
       </nav>
       <hr class="featurette-divider" />
-
-
         <!-- /END THE FEATURETTES -->
       </div>
       <!-- /.container -->

@@ -13,6 +13,11 @@ var Products = resolve => {
     resolve(require('./Pages/Products/Index.vue'));
   });
 };
+var Product = resolve => {
+  require.ensure(['./Pages/Product/Index.vue'],()=>{
+    resolve(require('./Pages/Product/Index.vue'));
+  });
+};
 export const Routes = [
   {
   path: "/",
@@ -26,6 +31,11 @@ export const Routes = [
     path: "/products",
     component: Products,
     name:"GetProducts"
+  },
+  {
+    path: "/products/product/:id",
+    component: Product,
+    name:"GetProduct"
   },
 {
   path: '/404',

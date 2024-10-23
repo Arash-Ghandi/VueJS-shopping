@@ -19,7 +19,8 @@
           :key="slider.sliderId"
           :class="{active:index == 0}"
           >
-            <svg
+          <img src="/src/assets/images/bg/bg-01.jpg" alt="" srcset="">
+            <!-- <svg
               class="bd-placeholder-img"
               width="100%"
               height="100%"
@@ -32,7 +33,7 @@
               <title></title>
               <rect width="100%" height="100%" fill="#777" />
               <text x="50%" y="50%" fill="#777" dy=".3em"></text>
-            </svg>
+            </svg> -->
 
             <div class="container">
               <div class="carousel-caption text-left">
