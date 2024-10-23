@@ -24,24 +24,8 @@
         <hr class="featurette-divider" />
 
 
+        <suggested-products></suggested-products>
 
-        <div class="row">
-    <div class="col-lg-3 col-md-4"
-    >
-      <div class="card">
-        <img :src="ProductImageAddress+Product.image" class="card-img-top">
-        <div class="card-body">
-          <h5 class="card-title">{{ Product.name }}</h5>
-          <p class="card-text">{{ Product.description }}</p>
-          <p class="card-text">{{ Product.price }} $</p>
-
-          <router-link class="btn btn-primary w-100" :to="{name:'GetProduct',params:{id:Product.id}}">
-                  Show
-          </router-link>
-        </div>
-      </div>
-    </div>
-</div>
 
       </div>
       <!-- /.container -->
@@ -51,7 +35,11 @@
 </template>
 
 <script>
+import suggestedProducts from "./Components/SuggestedProducts.vue";
 export default {
+  components:{
+    suggestedProducts : suggestedProducts
+  },
   computed:{
     Product(){
       console.log(this.$store.getters.GetProduct);
@@ -65,6 +53,13 @@ export default {
     this.$store.dispatch("GetProductFromServer",{
       productId : this.$route.params.id,
     })
+  },
+  watch:{
+    $route(to,form){
+      this.$store.dispatch('GetProductFromServer',{
+        productId : this.$route.params.id,
+      });
+    }
   }
 }
 </script>

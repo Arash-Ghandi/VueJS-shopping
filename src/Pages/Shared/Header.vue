@@ -1,7 +1,7 @@
 <template>
   <header>
-      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-costum-purple">
-        <a class="navbar-brand" href="#">Company</a>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-c-purple">
+        <a class="navbar-brand" href="#">AROON TECH</a>
         <button
           class="navbar-toggler"
           type="button"

@@ -2,17 +2,12 @@
     <main role="main">
 
       <app-slider></app-slider>
-      <!-- Marketing messaging and featurettes
-  ================================================== -->
-      <!-- Wrap the rest of the page in another container to center all the content. -->
+
       <div class="container marketing">
       <hr class="featurette-divider" />
       <!-- Products -->
         <most-sell></most-sell>
-
       <!-- /.Products -->
-
-        <!-- START THE FEATURETTES -->
 
         <hr class="featurette-divider" />
 

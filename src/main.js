@@ -13,6 +13,12 @@ Vue.http.options.root = "http://127.0.0.1:5000/";
 const router = new VueRouter({
   routes: Routes,
   mode: 'history',
+  scrollBehavior() {
+    return {
+      x : 0,
+      y :0
+    }
+  }
 });
 
 new Vue({

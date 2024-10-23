@@ -42,7 +42,7 @@
                   {{ slider.description }}
                 </p>
                 <p>
-                  <a class="btn btn-lg btn-primary" href="#">Sign up today</a>
+                  <a class="btn btn-lg btn-c-primary" href="#">Sign up today</a>
                 </p>
               </div>
             </div>

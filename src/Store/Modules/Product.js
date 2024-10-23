@@ -5,6 +5,7 @@ const state = {
   ProductImageAddress:window.location.origin+"/src/assets/images/products/",
   Products: {},
   Product: {},
+  SuggesredProducts: [],
 };
 
 const getters = {
@@ -16,6 +17,9 @@ const getters = {
   },
   GetProduct(state){
     return state.Product;
+  },
+  GetSuggestedProducts(state){
+    return state.SuggesredProducts;
   },
   GetProductImageAddress(state){
     return state.ProductImageAddress;
@@ -31,6 +35,9 @@ const mutations = {
   },
   SetProduct(state,Product){
     state.Product = Product;
+  },
+  SetSuggestedProducts(state,Product){
+    state.SuggesredProducts = Product;
   }
 };
 
@@ -61,6 +68,15 @@ const actions = {
         return response.json();
       }).then(data => {
         context.commit("SetProduct", data);
+      });
+  },
+  GetSuggestedProductsFromServer(context) {
+    Vue.http.get("products/SuggestedProducts")
+      .then(response => {
+        return response.json();
+      }).then(data => {
+        console.log(data);
+        context.commit("SetSuggestedProducts", data);
       });
   },
 

@@ -1,8 +1,8 @@
 <template>
-<div class="row">
+  <div class="row">
+
     <div class="col-lg-3 col-md-4"
-    v-for="product in MostSellProducts"
-    :key="product.id"
+    v-for="product in SuggestedProducts" :key="product.id"
     >
       <div class="card">
         <img :src="ProductImageAddress+product.image" class="card-img-top">
@@ -15,25 +15,31 @@
                   Show
           </router-link>
         </div>
+        </div>
       </div>
-    </div>
-</div>
+
+  </div>
 </template>
 <script>
-
 export default {
   computed:{
-    MostSellProducts(){
-      return this.$store.getters.GetMostSellProducts;
+    SuggestedProducts(){
+      return this.$store.getters.GetSuggestedProducts;
     },
     ProductImageAddress() {
       return this.$store.getters.GetProductImageAddress;
     }
   },
   created(){
-    if(this.MostSellProducts.length == 0){
-     this.$store.dispatch("GetMostSellProductsFromServer");
+    this.$store.dispatch("GetSuggestedProductsFromServer");
+  },
+  watch:{
+    $route(to,form){
+      this.$store.dispatch('GetSuggestedProductsFromServer',{
+        productId : this.$route.params.id,
+      });
     }
   }
+
 }
 </script>

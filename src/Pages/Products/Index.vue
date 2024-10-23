@@ -16,7 +16,7 @@
                 <p class="card-text">{{ product.description }}</p>
                 <p class="card-text">{{ product.price }} $</p>
 
-                <router-link class="btn btn-primary w-100" :to="{name:'GetProduct',params:{id:product.id}}">
+                <router-link class="btn btn-c-primary w-100" :to="{name:'GetProduct',params:{id:product.id}}">
                   Show
                 </router-link>
               </div>
