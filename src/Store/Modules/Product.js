@@ -2,8 +2,8 @@ import Vue from 'vue';
 
 const state = {
   MostSellProducts: [],
-  ProductImageAddress:window.location.href+"src/assets/images/products/",
-  Products: [],
+  ProductImageAddress:window.location.origin+"/src/assets/images/products/",
+  Products: {},
 };
 
 const getters = {
@@ -37,8 +37,12 @@ const actions = {
         context.commit("SetMostSellProducts", data);
       });
   },
-  GetProductsFromServer(context) {
-    Vue.http.get("products/GetProducts")
+  GetProductsFromServer(context,Filter) {
+    Vue.http.get("products/GetProducts", {
+      params:{
+        pageId: Filter.pageId
+      }
+    })
       .then(response => {
         return response.json();
       }).then(data => {

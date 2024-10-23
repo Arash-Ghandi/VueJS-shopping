@@ -24,7 +24,8 @@ export const Routes = [
   },
   {
     path: "/products",
-    component: Products
+    component: Products,
+    name:"GetProducts"
   },
 {
   path: '/404',
