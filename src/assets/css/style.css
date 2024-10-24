@@ -113,3 +113,37 @@ body {
     margin-top: 7rem;
   }
 }
+
+  /* CUSTOMIZE THE CAROUSEL
+  -------------------------------------------------- */
+
+  .login-register{
+
+    height: 100vh;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    background-size: cover;
+    background-position: 50%;
+
+}
+.login-register .card {
+    width: 40% !important;
+}
+@media only screen and (max-width: 600px) {
+    .login-register .card {
+        width: 60% !important;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .login-register .card {
+        width: 100% !important;
+    }
+}
+@media only screen and (max-width: 992px) {
+    .login-register .card {
+        width: 85% !important;
+    }
+}

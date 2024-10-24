@@ -28,6 +28,18 @@
               <a class="nav-link">About</a>
             </router-link>
 
+            <div v-if="!IsUserAuthenticated">
+            <router-link tag="li" active-class="active" to="/login" exact>
+              <a class="nav-link">Login/Register</a>
+            </router-link>
+            </div>
+            <div v-else >
+              <li>
+                {{ UserFullName }}
+                <a style="cursor:pointer" @click="SignOutUser()"> <i class="fa fa-lock"></i>Logout</a>
+              </li>
+            </div>
+
           </ul>
           <form class="form-inline mt-2 mt-md-0">
             <input

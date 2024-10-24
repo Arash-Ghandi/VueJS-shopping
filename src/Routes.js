@@ -18,6 +18,17 @@ var Product = resolve => {
     resolve(require('./Pages/Product/Index.vue'));
   });
 };
+var Login = resolve => {
+  require.ensure(['./Pages/Login/Index.vue'],()=>{
+    resolve(require('./Pages/Login/Index.vue'));
+  });
+};
+var Register = resolve => {
+  require.ensure(['./Pages/Register/Index.vue'],()=>{
+    resolve(require('./Pages/Register/Index.vue'));
+  });
+};
+
 export const Routes = [
   {
   path: "/",
@@ -37,12 +48,21 @@ export const Routes = [
     component: Product,
     name:"GetProduct"
   },
-{
-  path: '/404',
-  redirect: '/'
-},
-{
-  path: '*',
-  redirect: '/404'
-}
+  {
+    path: "/login",
+    component: Login,
+  },
+  {
+    path: "/register",
+    component: Register,
+  },
+
+  {
+    path: '/404',
+    redirect: '/'
+  },
+  {
+    path: '*',
+    redirect: '/404'
+  }
 ];

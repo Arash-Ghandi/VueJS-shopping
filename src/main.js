@@ -4,9 +4,13 @@ import {Routes} from './Routes'
 import VueResource from 'vue-resource';
 import {store} from './Store/Store';
 import App from './App.vue';
+import Vuelidate from 'vuelidate';
+import VueCookie from 'vue-cookie';
 
 Vue.use(VueRouter);
 Vue.use(VueResource);
+Vue.use(Vuelidate);
+Vue.use(VueCookie);
 
 Vue.http.options.root = "http://127.0.0.1:5000/";
 
