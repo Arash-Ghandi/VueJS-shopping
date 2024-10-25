@@ -36,23 +36,42 @@
             <div v-else >
               <li>
                 {{ UserFullName }}
-                <a style="cursor:pointer" @click="SignOutUser()"> <i class="fa fa-lock"></i>Logout</a>
+                <a class="nav-link" style="cursor: pointer;" @click="SignOutUser()">
+                  Logout
+                </a>
               </li>
             </div>
 
           </ul>
-          <form class="form-inline mt-2 mt-md-0">
-            <input
-              class="form-control mr-sm-2"
-              type="text"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-              Search
-            </button>
-          </form>
+          <router-link class="mx-3" to="/shopCart" v-if="IsUserAuthenticated"  exact>
+          <!-- <router-link class="mx-3" to="/shopCart"  exact> -->
+              <i class="fas fa-shopping-cart text-white"></i>
+          </router-link>
         </div>
       </nav>
     </header>
 </template>
+<script>
+export default {
+  computed: {
+    IsUserAuthenticated() {
+      return true;
+      return this.$store.getters.IsUserAuthenticated;
+    },
+    UserFullName() {
+      return this.$store.getters.GetUserFullName;
+    }
+  },
+  methods: {
+    // CheckForLogin() {
+    //   this.$store.dispatch("CheckForLogin");
+    // },
+    // SignOutUser() {
+    //   this.$store.dispatch("SignOutUser");
+    // }
+  },
+  created() {
+    this.CheckForLogin();
+  }
+};
+</script>

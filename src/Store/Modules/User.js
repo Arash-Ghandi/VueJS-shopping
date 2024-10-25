@@ -62,6 +62,27 @@ const actions = {
 
     });
   },
+  CheckForLogin(context) {
+    Vue.http.get('CheckAuthentication').then(response => {
+      console.log(response);
+      if (response.status !== 401 && response.body.status) {
+        context.commit("SetUserFullName", response.body.user.name + " " + response.body.user.family);
+        context.commit("SetUserAuthenticated", true);
+      }
+    });
+  },
+
+  SignOutUser(context) {
+    Vue.http.get('SignOut').then(response => {
+      console.log(response);
+      if (response.status !== 401 && response.body.status == "success") {
+        context.commit("SetUserFullName", '');
+        context.commit("SetUserAuthenticated", false);
+        context.commit("DeleteAuthCookie");
+        router.push('/Login');
+      }
+    });
+  }
 };
 
 export default {

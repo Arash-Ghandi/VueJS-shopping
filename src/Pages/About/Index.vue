@@ -1,27 +1,15 @@
 <template>
     <main role="main">
-
-      <!-- Marketing messaging and featurettes
-  ================================================== -->
-      <!-- Wrap the rest of the page in another container to center all the content. -->
-
       <div class="container marketing">
-
-        <!-- START THE FEATURETTES -->
-
-
         <hr class="featurette-divider" />
-
         <div class="row featurette">
           <div class="col-md-7">
             <h2 class="featurette-heading">
               And lastly, this one.
-              <span class="text-muted">{{About.name}}</span>
+              <span class="text-muted">{{ About.name }}</span>
             </h2>
             <p class="lead">
-
-              {{About.description}}
-
+              {{ About.description }}
             </p>
           </div>
           <div class="col-md-5">
@@ -41,14 +29,8 @@
             </svg>
           </div>
         </div>
-
         <hr class="featurette-divider" />
-
-        <!-- /END THE FEATURETTES -->
       </div>
-      <!-- /.container -->
-
-
     </main>
 </template>
 <script>

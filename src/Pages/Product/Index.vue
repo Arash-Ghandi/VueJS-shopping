@@ -11,8 +11,17 @@
             </h2>
             <p class="lead">
               {{ Product.description }}
-
             </p>
+            <div class="form-group">
+              <label>Amount</label>
+              <input type="number" class="form-control" v-model="count">
+            </div>
+
+            <a class="btn btn-c-primary" @click="AddProductToOrder(product.productId)">
+              <i class="fa fa-shopping-cart"></i>
+              Add to Cart
+            </a>
+
           </div>
           <div class="col-md-5">
             <img
@@ -37,6 +46,11 @@
 <script>
 import suggestedProducts from "./Components/SuggestedProducts.vue";
 export default {
+  data() {
+    return {
+      count: 1
+    };
+  },
   components:{
     suggestedProducts : suggestedProducts
   },
@@ -59,6 +73,17 @@ export default {
       this.$store.dispatch('GetProductFromServer',{
         productId : this.$route.params.id,
       });
+    }
+  }
+  ,
+  methods: {
+    AddProductToOrder(productId) {
+      const orderDetail = {
+        productId: productId,
+        count: this.count
+      };
+
+      this.$store.dispatch("AddProductToOrder", orderDetail);
     }
   }
 }

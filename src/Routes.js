@@ -28,6 +28,11 @@ var Register = resolve => {
     resolve(require('./Pages/Register/Index.vue'));
   });
 };
+var ShopCart = resolve => {
+  require.ensure(['./Pages/ShopCart/Index.vue'],()=>{
+    resolve(require('./Pages/ShopCart/Index.vue'));
+  });
+};
 
 export const Routes = [
   {
@@ -56,7 +61,10 @@ export const Routes = [
     path: "/register",
     component: Register,
   },
-
+  {
+    path: "/shopCart",
+    component: ShopCart,
+  },
   {
     path: '/404',
     redirect: '/'

@@ -5,6 +5,7 @@ import about from './Modules/About';
 import slider from './Modules/Slider';
 import product from './Modules/Product';
 import user from './Modules/User';
+import order from './Modules/Order';
 
 Vue.use(Vuex);
 
@@ -14,6 +15,7 @@ export const store = new Vuex.Store({
     about,
     slider,
     product,
-    user
+    user,
+    order
   }
 });

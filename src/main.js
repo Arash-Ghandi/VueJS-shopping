@@ -13,6 +13,12 @@ Vue.use(Vuelidate);
 Vue.use(VueCookie);
 
 Vue.http.options.root = "http://127.0.0.1:5000/";
+Vue.http.interceptors.push((request, next) => {
+
+  request.headers.set('Authorization', 'Bearer ' + Vue.cookie.get('Eshop_Auth_Token'));
+
+  next();
+});
 
 const router = new VueRouter({
   routes: Routes,
